@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -61,9 +62,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting() {
-    Column (modifier = Modifier
-        .padding(32.dp)
-        .fillMaxWidth()) {
+    Box (modifier = Modifier
+        .fillMaxWidth().background(Color(0xFFF0F0F0))) {
         MyComponent()
     }
 }
@@ -82,11 +82,12 @@ fun MyComponent() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.fillMaxHeight()
+        modifier = Modifier.fillMaxHeight().fillMaxWidth().padding(32.dp)
     ) {
         Text(
             text = "Qual a sua idade?",
-            color = Color.Red, fontSize = 24.sp,
+            color = Color(0xFF06B8FF),
+            fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
 //            modifier = Modifier.fillMaxWidth()
@@ -94,7 +95,7 @@ fun MyComponent() {
         Text(
             text = "Pressione os botões para informar sua idade",
             fontSize = 12.sp,
-            color = Color.DarkGray,
+            color = Color(0xFF1C1C1C),
 //            modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center
         )
@@ -105,6 +106,7 @@ fun MyComponent() {
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Bold,
+            color = Color(0xFF1C1C1C)
         )
         Spacer(modifier = Modifier.height(25.dp))
         Row (
@@ -125,7 +127,7 @@ fun MyComponent() {
                 modifier =  Modifier.size(84.dp),
                 shape = AbsoluteRoundedCornerShape(5.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF2EC3FF)
+                    containerColor = Color(0xFF06B8FF)
                 )
             ) {
                 Text(text = "-")
@@ -143,7 +145,7 @@ fun MyComponent() {
                 modifier =  Modifier.size(84.dp),
                 shape = AbsoluteRoundedCornerShape(5.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF2EC3FF)
+                    containerColor = Color(0xFF06B8FF)
                 )
             ) {
                 Text(text = "+")
